@@ -1,0 +1,3 @@
+Select mov_title,max(rev_stars)
+from movies m, rating r
+where m.mov_id = r.mov_id group by (m.mov_id) having max(rev_stars)>=1 order by m.mov_title;
