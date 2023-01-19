@@ -1,0 +1,13 @@
+select sname, 'exists' as samecity
+from salesman s
+where city in
+(select city
+from customer
+where s.sid = sid)
+union
+select sname, 'not exists' as samecity
+from salesman s where
+city not in
+(select city
+from customer
+where s.sid = sid);
