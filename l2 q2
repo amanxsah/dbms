@@ -1,0 +1,4 @@
+select s.sid,s.sname,count(cid)
+from salesman s, customer c
+where s.sid = c.sid
+group by (s.sname) having count(cid)>1;
