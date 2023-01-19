@@ -1,0 +1,5 @@
+select grade,count(*) as count
+from customer where grade >
+(select avg(grade)
+from customer
+where city ='bangalore');
