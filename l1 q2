@@ -1,0 +1,5 @@
+select card_no
+from book_lending
+where date_out between '2017-01-01' and '2017-06-30'
+group by card_no
+having count(*)>3;
