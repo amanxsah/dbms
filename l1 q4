@@ -1,0 +1,19 @@
+create table bookpartition
+(
+book_id int,
+pub_year int,
+publisher_name varchar(10))
+partition by range(pub_year)
+(partition p0 values less than(2000),
+partition p1 values less than(2005),
+partition p2 values less than(2010));
+insert into bookpartition values('1',1998, 'vikas');
+insert into bookpartition values('3',1999, 'subash');
+insert into bookpartition values('2',2002, 'pearson');
+insert into bookpartition values('5',2005, 'vikas');
+insert into bookpartition values('7',2008, 'subash');
+insert into bookpartition values('8',2007, 'pearson');
+select * from bookpartition;
+select * from bookpartition partition(p0);
+select * from bookpartition partition(p1);
+select * from bookpartition partition(p2);
