@@ -1,0 +1,9 @@
+create view highestorder as
+select s.sid,s.sname,o.purchaseamt,o.orddate
+from salesman s,orders o
+where s.sid = o.sid and
+o.purchaseamt =
+(select max(purchaseamt)
+From orders c
+Where c.orddate =o. orddate);
+select * from highest_order;
