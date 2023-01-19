@@ -1,0 +1,5 @@
+select distinct mov_title from movies m, moviecast mc 
+where m.mov_id = mc.mov_id and
+(select count(mov_id)
+from moviecast
+where act_id=mc.act_id )>=2;
